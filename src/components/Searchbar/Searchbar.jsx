@@ -10,6 +10,11 @@ export class Searchbar extends Component {
 
   handelSubmit = e => {
     e.preventDefault();
+
+    if (this.state.searchimg.trim() === '') {
+      alert('No search value!');
+      return;
+    }
     this.props.handlFormSubmirt(this.state.searchimg);
     this.setState({ searchimg: '' });
     this.reset();
