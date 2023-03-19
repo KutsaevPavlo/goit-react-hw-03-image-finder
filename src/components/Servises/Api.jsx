@@ -10,7 +10,7 @@ export const fetchArticlesWithQuery = async (searchQuery, queryPage) => {
     per_page: 4,
   });
 
-  const response = axios.get(
+  const response = await axios.get(
     `${BASE_URL}?${searchParams}&q=${searchQuery}&page=${queryPage}`
   );
   return response.data.hits;

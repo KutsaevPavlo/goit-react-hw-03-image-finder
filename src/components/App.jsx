@@ -4,7 +4,8 @@ import { Searchbar } from './Searchbar/Searchbar';
 import { ProgressBar } from 'react-loader-spinner';
 import { Modal } from './Modal/Modal';
 import { Component } from 'react';
-import { fetchArticlesWithQuery } from './Servises/Api';
+import Api from './Servises/Api';
+// import { fetchArticlesWithQuery } from './Servises/Api';
 
 export class App extends Component {
   state = {
@@ -17,12 +18,15 @@ export class App extends Component {
   };
 
   async componentDidMount() {
-    try {
-      const materials = fetchArticlesWithQuery('cat', 1);
-      this.setState({ materials });
-    } catch (error) {
-      this.setState({ error });
-    }
+    const material = Api.fetchArticlesWithQuery('cat', 1);
+    console.log(material);
+    // try {
+    //   const material = Api.fetchArticlesWithQuery('cat', 1);
+    //   console.log(material);
+    //   this.setState({ material });
+    // } catch (error) {
+    //   this.setState({ error });
+    // }
   }
 
   render() {
