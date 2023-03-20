@@ -10,13 +10,21 @@ export class ImageGallery extends Component {
     status: 'idel',
     error: null,
   };
-  async componentDidUpdate(prevProps, presState) {
+
+  async componentDidUpdate(prevProps, prevState) {
     const { searchimg, page } = this.props;
-    if (prevProps.searchimg !== searchimg) {
+    if (
+      prevProps.searchimg !== searchimg ||
+      (prevProps.searchimg === searchimg && prevProps.page !== page)
+    ) {
       this.setState({ status: 'pending' });
       try {
         const material = await fetchArticlesWithQuery(searchimg, page);
-        this.setState({ status: 'resolved', searchimg: material });
+        this.setState({ searchimg: material, status: 'resolved' });
+        // this.setState(prevState => ({
+        //   searchimg: [...prevState.material, ...material],
+        //   status: 'resolved',
+        // }));
       } catch (error) {
         this.setState({ error, status: 'rejected' });
       }
