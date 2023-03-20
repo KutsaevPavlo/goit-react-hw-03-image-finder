@@ -16,9 +16,9 @@ export const fetchArticlesWithQuery = async (searchQuery, queryPage) => {
   return response.data.hits;
 };
 
-export default {
-  fetchArticlesWithQuery,
-};
+// export default {
+//   fetchArticlesWithQuery,
+// };
 
 // export default class ImgApi {
 //   state = {
@@ -34,8 +34,3 @@ export default {
 //   resetPage() {
 //     this.queryPage = 1;
 //   }
-
-//   incrementPage() {
-//     this.queryPage += 1;
-//   }
-// }

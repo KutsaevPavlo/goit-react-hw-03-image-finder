@@ -1,4 +1,3 @@
-import { Button } from './Button/Button';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Searchbar } from './Searchbar/Searchbar';
 
@@ -9,6 +8,11 @@ export class App extends Component {
   state = {
     materials: [],
     searchimg: '',
+    page: 1,
+  };
+
+  incrementPage = () => {
+    this.setState(prevState => ({ page: prevState.page + 1 }));
   };
 
   handlFormSubmit = searchimg => {
@@ -20,9 +24,11 @@ export class App extends Component {
       <section>
         <div>
           <Searchbar handlFormSubmirt={this.handlFormSubmit} />
-          <ImageGallery searchimg={this.state.searchimg} />
-          <Button />
-
+          <ImageGallery
+            page={this.state.page}
+            searchimg={this.state.searchimg}
+            incrementPage={this.incrementPage}
+          />
           <Modal />
         </div>
       </section>

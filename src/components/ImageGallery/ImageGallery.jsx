@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import { fetchArticlesWithQuery } from 'components/Servises/Api';
 import { Loader } from 'components/Loader/Loader';
+import { Button } from 'components/Button/Button';
 
 export class ImageGallery extends Component {
   state = {
@@ -10,11 +11,11 @@ export class ImageGallery extends Component {
     error: null,
   };
   async componentDidUpdate(prevProps, presState) {
-    const { searchimg } = this.props;
-    if (prevProps.searchimg !== this.props.searchimg) {
+    const { searchimg, page } = this.props;
+    if (prevProps.searchimg !== searchimg) {
       this.setState({ status: 'pending' });
       try {
-        const material = await fetchArticlesWithQuery(searchimg, 1);
+        const material = await fetchArticlesWithQuery(searchimg, page);
         this.setState({ status: 'resolved', searchimg: material });
       } catch (error) {
         this.setState({ error, status: 'rejected' });
@@ -47,6 +48,7 @@ export class ImageGallery extends Component {
               />
             ))}
           </ul>
+          <Button incrementPage={this.props.incrementPage} />
         </>
       );
     }
