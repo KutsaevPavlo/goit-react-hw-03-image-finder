@@ -20,11 +20,11 @@ export class ImageGallery extends Component {
       this.setState({ status: 'pending' });
       try {
         const material = await fetchArticlesWithQuery(searchimg, page);
-        this.setState({ searchimg: material, status: 'resolved' });
-        // this.setState(prevState => ({
-        //   searchimg: [...prevState.material, ...material],
-        //   status: 'resolved',
-        // }));
+        // this.setState({ searchimg: material, status: 'resolved' });
+        this.setState(prevState => ({
+          searchimg: [...prevState.searchimg, ...material],
+          status: 'resolved',
+        }));
       } catch (error) {
         this.setState({ error, status: 'rejected' });
       }
