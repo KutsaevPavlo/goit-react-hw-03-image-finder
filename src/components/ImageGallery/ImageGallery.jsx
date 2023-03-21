@@ -37,7 +37,24 @@ export class ImageGallery extends Component {
       return;
     }
     if (status === 'pending') {
-      return <Loader />;
+      return searchimg.length > 0 ? (
+        <>
+          <ul className="gallery">
+            {searchimg.map(({ id, webformatURL, largeImageURL, tags }) => (
+              <ImageGalleryItem
+                key={id}
+                webformatURL={webformatURL}
+                largeImageURL={largeImageURL}
+                tags={tags}
+              />
+            ))}
+          </ul>
+          <Loader />
+        </>
+      ) : (
+        <Loader />
+      );
+      // return <Loader />;
     }
     if (status === 'rejected') {
       return <p>{error.message}</p>;
