@@ -7,7 +7,7 @@ export const fetchArticlesWithQuery = async (searchQuery, queryPage) => {
     image_type: 'photo',
     orientation: 'horizontal',
     safesearch: true,
-    per_page: 4,
+    per_page: 40,
   });
 
   const response = await axios.get(
@@ -15,22 +15,3 @@ export const fetchArticlesWithQuery = async (searchQuery, queryPage) => {
   );
   return response.data.hits;
 };
-
-// export default {
-//   fetchArticlesWithQuery,
-// };
-
-// export default class ImgApi {
-//   state = {
-//     queryPage: 1,
-//     searchQuery: '',
-//     countImg: 0,
-//   };
-
-//     this.incrementPage();
-//     return response.data;
-//   }
-
-//   resetPage() {
-//     this.queryPage = 1;
-//   }

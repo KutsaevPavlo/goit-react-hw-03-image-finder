@@ -3,6 +3,7 @@ import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import { fetchArticlesWithQuery } from 'components/Servises/Api';
 import { Loader } from 'components/Loader/Loader';
 import { Button } from 'components/Button/Button';
+import css from './ImageGallery.module.css';
 
 export class ImageGallery extends Component {
   state = {
@@ -39,7 +40,7 @@ export class ImageGallery extends Component {
     if (status === 'pending') {
       return searchimg.length > 0 ? (
         <>
-          <ul className="gallery">
+          <ul className={css.ImageGallery}>
             {searchimg.map(({ id, webformatURL, largeImageURL, tags }) => (
               <ImageGalleryItem
                 key={id}
@@ -62,7 +63,7 @@ export class ImageGallery extends Component {
     if (status === 'resolved') {
       return (
         <>
-          <ul className="gallery">
+          <ul className={css.ImageGallery}>
             {searchimg.map(({ id, webformatURL, largeImageURL, tags }) => (
               <ImageGalleryItem
                 key={id}

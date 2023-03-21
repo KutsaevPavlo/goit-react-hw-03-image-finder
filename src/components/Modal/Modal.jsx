@@ -1,5 +1,6 @@
 import { createPortal } from 'react-dom';
 import { Component } from 'react';
+import css from './Modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -14,7 +15,6 @@ export class Modal extends Component {
 
   hendelKeyDown = e => {
     if (e.code === 'Escape') {
-      console.log(e.code);
       this.props.onClose();
     }
   };
@@ -23,8 +23,8 @@ export class Modal extends Component {
     const { children } = this.props;
 
     return createPortal(
-      <div className="overlay">
-        <div className="modal">{children}</div>
+      <div className={css.Overlay}>
+        <div className={css.Modal}>{children}</div>
       </div>,
       modalRoot
     );
