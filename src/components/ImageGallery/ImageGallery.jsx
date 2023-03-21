@@ -56,7 +56,6 @@ export class ImageGallery extends Component {
       ) : (
         <Loader />
       );
-      // return <Loader />;
     }
     if (status === 'rejected') {
       return <p>{error.message}</p>;
