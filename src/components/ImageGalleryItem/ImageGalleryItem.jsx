@@ -17,7 +17,7 @@ export class ImageGalleryItem extends Component {
       <li className="gallery-item" onClick={this.toogleModal}>
         <img src={webformatURL} alt={tags} />
         {isModalShow && (
-          <Modal onClose={this.toogleModal}>
+          <Modal onClick={this.toogleModal}>
             <img src={largeImageURL} alt={tags} />
           </Modal>
         )}
