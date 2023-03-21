@@ -4,6 +4,7 @@ import { fetchArticlesWithQuery } from 'components/Servises/Api';
 import { Loader } from 'components/Loader/Loader';
 import { Button } from 'components/Button/Button';
 import css from './ImageGallery.module.css';
+import PropTypes from 'prop-types';
 
 export class ImageGallery extends Component {
   state = {
@@ -79,3 +80,9 @@ export class ImageGallery extends Component {
     }
   }
 }
+
+ImageGallery.propTypes = {
+  page: PropTypes.number.isRequired,
+  searchimg: PropTypes.string.isRequired,
+  incrementPage: PropTypes.func.isRequired,
+};

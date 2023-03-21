@@ -1,4 +1,5 @@
 import css from './Button.module.css';
+import PropTypes from 'prop-types';
 
 export const Button = ({ incrementPage }) => {
   return (
@@ -7,3 +8,5 @@ export const Button = ({ incrementPage }) => {
     </button>
   );
 };
+
+Button.propTypes = { incrementPage: PropTypes.func.isRequired };
