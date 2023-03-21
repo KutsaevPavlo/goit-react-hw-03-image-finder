@@ -1,7 +1,7 @@
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Searchbar } from './Searchbar/Searchbar';
 
-import { Modal } from './Modal/Modal';
+// import { Modal } from './Modal/Modal';
 import { Component } from 'react';
 
 export class App extends Component {
@@ -29,7 +29,6 @@ export class App extends Component {
             searchimg={this.state.searchimg}
             incrementPage={this.incrementPage}
           />
-          <Modal />
         </div>
       </section>
     );
