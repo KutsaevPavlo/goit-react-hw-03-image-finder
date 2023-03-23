@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
-import { fetchArticlesWithQuery } from 'components/Servises/Api';
+import { fetchArticlesWithQuery } from 'Servises/Api';
 import { Loader } from 'components/Loader/Loader';
 import { Button } from 'components/Button/Button';
 import css from './ImageGallery.module.css';
@@ -19,8 +19,12 @@ export class ImageGallery extends Component {
       prevProps.searchimg !== searchimg ||
       (prevProps.searchimg === searchimg && prevProps.page !== page)
     ) {
-      this.setState({ status: 'pending' });
       try {
+        if (page === 1) {
+          this.setState({ searchimg: [] });
+        }
+        this.setState({ status: 'pending' });
+
         const material = await fetchArticlesWithQuery(searchimg, page);
         this.setState(prevState => ({
           searchimg: [...prevState.searchimg, ...material],

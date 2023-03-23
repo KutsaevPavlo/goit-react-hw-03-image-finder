@@ -7,7 +7,7 @@ export const fetchArticlesWithQuery = async (searchQuery, queryPage) => {
     image_type: 'photo',
     orientation: 'horizontal',
     safesearch: true,
-    per_page: 40,
+    per_page: 12,
   });
 
   const response = await axios.get(
