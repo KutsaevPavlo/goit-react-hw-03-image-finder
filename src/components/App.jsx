@@ -15,7 +15,7 @@ export class App extends Component {
   };
 
   handlFormSubmit = searchimg => {
-    this.setState({ searchimg });
+    this.setState({ searchimg, page: 1 });
   };
 
   render() {
